@@ -27,6 +27,11 @@
 
 	<table class="eventDetail checklist">
 		<tr>
+			<td colspan="3" class="header">
+				Before start of anaesthesia
+			</td>
+		</tr>
+		<tr>
 			<td colspan="3">
 				<span>Nursing handover<span>
 				<span class="right">Anaesthesiologist</span>

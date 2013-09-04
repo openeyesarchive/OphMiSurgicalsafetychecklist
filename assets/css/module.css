@@ -20,5 +20,7 @@
 #event_content h3.withEventIcon { background:transparent url(../img/medium.png) center left no-repeat; }
 
 table.checklist { width: 40%; }
-table.checklist td { border: 1px solid #999; padding: 10px; }
+table.checklist td { border: 1px solid #999; padding: 10px; font-size: 15px; }
 table.checklist span.right { float: right; }
+table.checklist .header { background: #ccc; text-align: center; font-weight: bold; }
+table.checklist .eventDetail { padding: 0 !important; }
