@@ -69,7 +69,7 @@ class Element_OphMiSurgicalsafetychecklist_SignOut extends BaseEventTypeElement
 		// will receive user inputs.
 		return array(
 			array('event_id, count_complete, specimins_cultures, labelled_identifiers, problems_identified, problems_detail, recovery_instructions, ', 'safe'),
-			array('count_complete, specimins_cultures, labelled_identifiers, problems_identified, problems_detail, recovery_instructions, ', 'required'),
+			array('count_complete, specimins_cultures, labelled_identifiers, problems_identified, problems_detail, recovery_instructions, ', 'requiredIfActive'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, event_id, count_complete, specimins_cultures, labelled_identifiers, problems_identified, problems_detail, recovery_instructions, ', 'safe', 'on' => 'search'),
@@ -132,6 +132,20 @@ class Element_OphMiSurgicalsafetychecklist_SignOut extends BaseEventTypeElement
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria,
 		));
+	}
+
+	public function requiredIfActive($attribute, $params)
+	{
+		if (@$_POST['Element_OphMiSurgicalsafetychecklist_SignOut_active']) {
+			if ($this->$attribute == null) {
+				if (!@$params['message']) {
+					$params['message'] = "{attribute} cannot be blank.";
+				}
+				$params['{attribute}'] = $this->getAttributeLabel($attribute);
+
+				$this->addError($attribute, strtr($params['message'], $params));
+			}
+		}
 	}
 }
 ?>

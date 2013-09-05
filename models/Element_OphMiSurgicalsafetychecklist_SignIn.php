@@ -85,7 +85,7 @@ class Element_OphMiSurgicalsafetychecklist_SignIn extends BaseEventTypeElement
 		// will receive user inputs.
 		return array(
 			array('event_id, confirm_details1, confirm_details2, site_marked1_id, site_marked2_id, consent_form1, consent_form2, allergies1_id, allergies2_id, npo1_id, npo2_id, power_recorded1_id, specific_concerns_id, ', 'safe'),
-			array('confirm_details1, confirm_details2, site_marked1_id, site_marked2_id, consent_form1, consent_form2, allergies1_id, allergies2_id, npo1_id, npo2_id, power_recorded1_id, specific_concerns_id, ', 'required'),
+			array('confirm_details1, confirm_details2, site_marked1_id, site_marked2_id, consent_form1, consent_form2, allergies1_id, allergies2_id, npo1_id, npo2_id, power_recorded1_id, specific_concerns_id, ', 'requiredIfActive'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, event_id, confirm_details1, confirm_details2, site_marked1_id, site_marked2_id, consent_form1, consent_form2, allergies1_id, allergies2_id, npo1_id, npo2_id, power_recorded1_id, specific_concerns_id, ', 'safe', 'on' => 'search'),
@@ -170,6 +170,20 @@ class Element_OphMiSurgicalsafetychecklist_SignIn extends BaseEventTypeElement
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria,
 		));
+	}
+
+	public function requiredIfActive($attribute, $params)
+	{
+		if (@$_POST['Element_OphMiSurgicalsafetychecklist_SignIn_active']) {
+			if ($this->$attribute == null) {
+				if (!@$params['message']) {
+					$params['message'] = "{attribute} cannot be blank.";
+				}
+				$params['{attribute}'] = $this->getAttributeLabel($attribute);
+
+				$this->addError($attribute, strtr($params['message'], $params));
+			}
+		}
 	}
 }
 ?>

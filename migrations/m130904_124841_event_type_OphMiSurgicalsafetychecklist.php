@@ -11,19 +11,19 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 		$event_type = $this->dbConnection->createCommand()->select('id')->from('event_type')->where('class_name=:class_name', array(':class_name'=>'OphMiSurgicalsafetychecklist'))->queryRow();
 
 		if (!$this->dbConnection->createCommand()->select('id')->from('element_type')->where('name=:name and event_type_id=:eventTypeId', array(':name'=>'Sign in',':eventTypeId'=>$event_type['id']))->queryRow()) {
-			$this->insert('element_type', array('name' => 'Sign in','class_name' => 'Element_OphMiSurgicalsafetychecklist_SignIn', 'event_type_id' => $event_type['id'], 'display_order' => 1));
+			$this->insert('element_type', array('name' => 'Sign in','class_name' => 'Element_OphMiSurgicalsafetychecklist_SignIn', 'event_type_id' => $event_type['id'], 'display_order' => 10));
 		}
 
 		$element_type = $this->dbConnection->createCommand()->select('id')->from('element_type')->where('event_type_id=:eventTypeId and name=:name', array(':eventTypeId'=>$event_type['id'],':name'=>'Sign in'))->queryRow();
 
 		if (!$this->dbConnection->createCommand()->select('id')->from('element_type')->where('name=:name and event_type_id=:eventTypeId', array(':name'=>'Time out',':eventTypeId'=>$event_type['id']))->queryRow()) {
-			$this->insert('element_type', array('name' => 'Time out','class_name' => 'Element_OphMiSurgicalsafetychecklist_TimeOut', 'event_type_id' => $event_type['id'], 'display_order' => 1));
+			$this->insert('element_type', array('name' => 'Time out','class_name' => 'Element_OphMiSurgicalsafetychecklist_TimeOut', 'event_type_id' => $event_type['id'], 'display_order' => 20));
 		}
 
 		$element_type = $this->dbConnection->createCommand()->select('id')->from('element_type')->where('event_type_id=:eventTypeId and name=:name', array(':eventTypeId'=>$event_type['id'],':name'=>'Time out'))->queryRow();
 
 		if (!$this->dbConnection->createCommand()->select('id')->from('element_type')->where('name=:name and event_type_id=:eventTypeId', array(':name'=>'Sign out',':eventTypeId'=>$event_type['id']))->queryRow()) {
-			$this->insert('element_type', array('name' => 'Sign out','class_name' => 'Element_OphMiSurgicalsafetychecklist_SignOut', 'event_type_id' => $event_type['id'], 'display_order' => 1));
+			$this->insert('element_type', array('name' => 'Sign out','class_name' => 'Element_OphMiSurgicalsafetychecklist_SignOut', 'event_type_id' => $event_type['id'], 'display_order' => 30));
 		}
 
 		$element_type = $this->dbConnection->createCommand()->select('id')->from('element_type')->where('event_type_id=:eventTypeId and name=:name', array(':eventTypeId'=>$event_type['id'],':name'=>'Sign out'))->queryRow();
@@ -285,7 +285,6 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 		$this->dropTable('ophmisurgicalsafetycheckl_signin_power_recorded1');
 		$this->dropTable('ophmisurgicalsafetycheckl_signin_specific_concerns');
 		$this->dropTable('et_ophmisurgicalsafetycheckl_timeout');
-		$this->dropTable('ophmisurgicalsafetycheckl_timeout_eye_protection_type');
 		$this->dropTable('et_ophmisurgicalsafetycheckl_signout');
 
 		$event_type = $this->dbConnection->createCommand()->select('id')->from('event_type')->where('class_name=:class_name', array(':class_name'=>'OphMiSurgicalsafetychecklist'))->queryRow();

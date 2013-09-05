@@ -39,6 +39,12 @@ $(document).ready(function() {
 			}
 		}
 	});
+
+	$('table.checklist td.header').click(function(e) {
+		e.preventDefault();
+
+		$(this).closest('thead').next('tbody').slideToggle(200);
+	});
 });
 
 function ucfirst(str) { str += ''; var f = str.charAt(0).toUpperCase(); return f + str.substr(1); }

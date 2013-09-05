@@ -25,27 +25,33 @@
 	data-element-display-order="<?php echo $element->elementType->display_order?>">
 	<h4 class="elementTypeName"><?php echo $element->elementType->name; ?></h4>
 
+	<input type="hidden" id="Element_OphMiSurgicalsafetychecklist_SignOut_active" name="Element_OphMiSurgicalsafetychecklist_SignOut_active" value="<?php echo $this->elementActive($element) ? '1' : '0'?>" />
+
 	<table class="eventDetail checklist">
-		<tr>
-			<td class="header">
-				At end of procedure
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<strong>Surgeon / OR nurse verbally confirms with the team:</strong><br/>
-				<?php echo $form->checkBox($element, 'count_complete', array('text-align'=>'right','no-label'=>true))?>
-				<?php echo $form->checkBox($element, 'specimins_cultures', array('text-align'=>'right','no-label'=>true))?>
-				<?php echo $form->checkBox($element, 'labelled_identifiers', array('text-align'=>'right','no-label'=>true))?>
-				<?php echo $form->checkBox($element, 'problems_identified', array('text-align'=>'right','no-label'=>true))?>
-				<?php echo $form->textArea($element, 'problems_detail', array('rows' => 3, 'cols' => 36))?>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<strong>Surgeon and <?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetist']?></strong><br/>
-				<?php echo $form->checkBox($element, 'recovery_instructions', array('text-align'=>'right','no-label'=>true))?>
-			</td>
-		</tr>
+		<thead>
+			<tr>
+				<td class="header">
+					At end of procedure
+				</td>
+			</tr>
+		</thead>
+		<tbody style="display: none;">
+			<tr>
+				<td>
+					<strong>Surgeon / OR nurse verbally confirms with the team:</strong><br/>
+					<?php echo $form->checkBox($element, 'count_complete', array('text-align'=>'right','no-label'=>true))?>
+					<?php echo $form->checkBox($element, 'specimins_cultures', array('text-align'=>'right','no-label'=>true))?>
+					<?php echo $form->checkBox($element, 'labelled_identifiers', array('text-align'=>'right','no-label'=>true))?>
+					<?php echo $form->checkBox($element, 'problems_identified', array('text-align'=>'right','no-label'=>true))?>
+					<?php echo $form->textArea($element, 'problems_detail', array('rows' => 3, 'cols' => 36))?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Surgeon and <?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetist']?></strong><br/>
+					<?php echo $form->checkBox($element, 'recovery_instructions', array('text-align'=>'right','no-label'=>true))?>
+				</td>
+			</tr>
+		</tbody>
 	</table>
 </div>

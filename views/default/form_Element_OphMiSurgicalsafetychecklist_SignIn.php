@@ -25,97 +25,103 @@
 	data-element-display-order="<?php echo $element->elementType->display_order?>">
 	<h4 class="elementTypeName"><?php echo $element->elementType->name; ?></h4>
 
+	<input type="hidden" id="Element_OphMiSurgicalsafetychecklist_SignIn_active" name="Element_OphMiSurgicalsafetychecklist_SignIn_active" value="<?php echo $this->elementActive($element) ? '1' : '0'?>" />
+
 	<table class="eventDetail checklist">
-		<tr>
-			<td colspan="3" class="header">
-				Before start of <?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetic']?>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="3">
-				<span>Nursing handover<span>
-				<span class="right"><?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetist']?></span>
-			</td>
-		</tr>
-		<tr>
-			<td style="width: 65px;">
-				<?php echo $form->checkBox($element, 'confirm_details1', array('text-align'=>'right','no-label'=>true))?>
-			</td>
-			<td>
-				<strong>The patient (or guardian)* confirmed patient's identity, procedure, site and consent (including type of <?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetic']?>)</strong>
-			</td>
-			<td style="width: 65px;">
-				<?php echo $form->checkBox($element, 'confirm_details2', array('text-align'=>'right','no-label'=>true))?>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<?php echo $form->radioButtons($element, 'site_marked1_id', 'ophmisurgicalsafetycheckl_signin_site_marked1',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
-			</td>
-			<td>
-				<strong>The surgical site is marked</strong>
-			</td>
-			<td>
-				<?php echo $form->radioButtons($element, 'site_marked2_id', 'ophmisurgicalsafetycheckl_signin_site_marked2',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<?php echo $form->checkBox($element, 'consent_form1', array('text-align'=>'right','no-label'=>true))?>
-			</td>
-			<td>
-				<strong>The consent form is signed and the details match the patient's identity band</strong>
-			</td>
-			<td>
-				<?php echo $form->checkBox($element, 'consent_form2', array('text-align'=>'right','no-label'=>true))?>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<?php echo $form->radioButtons($element, 'allergies1_id', 'ophmisurgicalsafetycheckl_signin_allergies1',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
-			</td>
-			<td>
-				<strong>The patient's allergies have been identified</strong> (including latex)
-			</td>
-			<td>
-				<?php echo $form->radioButtons($element, 'allergies2_id', 'ophmisurgicalsafetycheckl_signin_allergies2',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<?php echo $form->radioButtons($element, 'npo1_id', 'ophmisurgicalsafetycheckl_signin_npo1',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
-			</td>
-			<td>
-				<strong>NPO</strong>
-			</td>
-			<td>
-				<?php echo $form->radioButtons($element, 'npo2_id', 'ophmisurgicalsafetycheckl_signin_npo2',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<?php echo $form->radioButtons($element, 'power_recorded1_id', 'ophmisurgicalsafetycheckl_signin_power_recorded1',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
-				<br/><br/>
-				<?php echo $form->checkBox($element, 'power_available', array('text-align'=>'right','no-label'=>true))?>
-			</td>
-			<td>
-				<strong>Intraocular lens type and power recorded in notes</strong><br/><br/>
-				If yes, the appropriate equipment/assistance is available or medically addressed
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>
-				<strong>Specific <?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetic']?> concerns<br/>
-					including Venous Thromboembolism</strong><br/><br/>
+		<thead>
+			<tr>
+				<td colspan="3" class="header">
+					Before start of <?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetic']?>
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td colspan="3">
+					<span>Nursing handover<span>
+					<span class="right"><?php echo ucfirst(Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetist'])?></span>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 65px;">
+					<?php echo $form->checkBox($element, 'confirm_details1', array('text-align'=>'right','no-label'=>true))?>
+				</td>
+				<td>
+					<strong>The patient (or guardian)* confirmed patient's identity, procedure, site and consent (including type of <?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetic']?>)</strong>
+				</td>
+				<td style="width: 65px;">
+					<?php echo $form->checkBox($element, 'confirm_details2', array('text-align'=>'right','no-label'=>true))?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<?php echo $form->radioButtons($element, 'site_marked1_id', 'ophmisurgicalsafetycheckl_signin_site_marked1',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
+				</td>
+				<td>
+					<strong>The surgical site is marked</strong>
+				</td>
+				<td>
+					<?php echo $form->radioButtons($element, 'site_marked2_id', 'ophmisurgicalsafetycheckl_signin_site_marked2',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<?php echo $form->checkBox($element, 'consent_form1', array('text-align'=>'right','no-label'=>true))?>
+				</td>
+				<td>
+					<strong>The consent form is signed and the details match the patient's identity band</strong>
+				</td>
+				<td>
+					<?php echo $form->checkBox($element, 'consent_form2', array('text-align'=>'right','no-label'=>true))?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<?php echo $form->radioButtons($element, 'allergies1_id', 'ophmisurgicalsafetycheckl_signin_allergies1',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
+				</td>
+				<td>
+					<strong>The patient's allergies have been identified</strong> (including latex)
+				</td>
+				<td>
+					<?php echo $form->radioButtons($element, 'allergies2_id', 'ophmisurgicalsafetycheckl_signin_allergies2',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<?php echo $form->radioButtons($element, 'npo1_id', 'ophmisurgicalsafetycheckl_signin_npo1',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
+				</td>
+				<td>
+					<strong>NPO</strong>
+				</td>
+				<td>
+					<?php echo $form->radioButtons($element, 'npo2_id', 'ophmisurgicalsafetycheckl_signin_npo2',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<?php echo $form->radioButtons($element, 'power_recorded1_id', 'ophmisurgicalsafetycheckl_signin_power_recorded1',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
+					<br/><br/>
+					<?php echo $form->checkBox($element, 'power_available', array('text-align'=>'right','no-label'=>true))?>
+				</td>
+				<td>
+					<strong>Intraocular lens type and power recorded in notes</strong><br/><br/>
 					If yes, the appropriate equipment/assistance is available or medically addressed
-			</td>
-			<td>
-				<?php echo $form->radioButtons($element, 'specific_concerns_id', 'ophmisurgicalsafetycheckl_signin_specific_concerns',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
-				<br/><br/>
-				<?php echo $form->checkBox($element, 'specific_addressed', array('text-align'=>'right','no-label'=>true))?>
-			</td>
-		</tr>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+					<strong>Specific <?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetic']?> concerns<br/>
+						including Venous Thromboembolism</strong><br/><br/>
+						If yes, the appropriate equipment/assistance is available or medically addressed
+				</td>
+				<td>
+					<?php echo $form->radioButtons($element, 'specific_concerns_id', 'ophmisurgicalsafetycheckl_signin_specific_concerns',null,false,false,false,false,array('nowrapper'=>true,'separator'=>'<br/>'))?>
+					<br/><br/>
+					<?php echo $form->checkBox($element, 'specific_addressed', array('text-align'=>'right','no-label'=>true))?>
+				</td>
+			</tr>
+		</tbody>
 	</table>
 </div>

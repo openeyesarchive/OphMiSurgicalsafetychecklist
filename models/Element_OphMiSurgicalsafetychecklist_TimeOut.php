@@ -46,7 +46,6 @@
  * @property Event $event
  * @property User $user
  * @property User $usermodified
- * @property OphMiSurgicalsafetychecklist_TimeOut_EyeProtectionType $eye_protection_type
  */
 
 class Element_OphMiSurgicalsafetychecklist_TimeOut extends BaseEventTypeElement
@@ -78,11 +77,11 @@ class Element_OphMiSurgicalsafetychecklist_TimeOut extends BaseEventTypeElement
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, introduced, verbal_confirm1, verbal_confirm2, verbal_confirm3, allergies, latex, eye_protected, eye_protection_type_id, specific_equipment, non_routine, instrument_sterility, specific_issues, initial_count, risk_reduction, ', 'safe'),
-			array('introduced, verbal_confirm1, verbal_confirm2, verbal_confirm3, allergies, latex, eye_protected, eye_protection_type_id, specific_equipment, non_routine, instrument_sterility, specific_issues, initial_count, risk_reduction, ', 'required'),
+			array('event_id, introduced, verbal_confirm1, verbal_confirm2, verbal_confirm3, allergies, latex, eye_protected, eye_protection_tape, eye_protection_shield, specific_equipment, non_routine, instrument_sterility, specific_issues, initial_count, risk_reduction, ', 'safe'),
+			array('introduced, verbal_confirm1, verbal_confirm2, verbal_confirm3, allergies, latex, eye_protected, eye_protection_tape, eye_protection_shield, specific_equipment, non_routine, instrument_sterility, specific_issues, initial_count, risk_reduction, ', 'requiredIfActive'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, event_id, introduced, verbal_confirm1, verbal_confirm2, verbal_confirm3, allergies, latex, eye_protected, eye_protection_type_id, specific_equipment, non_routine, instrument_sterility, specific_issues, initial_count, risk_reduction, ', 'safe', 'on' => 'search'),
+			array('id, event_id, introduced, verbal_confirm1, verbal_confirm2, verbal_confirm3, allergies, latex, eye_protected, eye_protected_tape, eye_protected_shield, specific_equipment, non_routine, instrument_sterility, specific_issues, initial_count, risk_reduction, ', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -99,7 +98,6 @@ class Element_OphMiSurgicalsafetychecklist_TimeOut extends BaseEventTypeElement
 			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
-			'eye_protection_type' => array(self::BELONGS_TO, 'OphMiSurgicalsafetychecklist_TimeOut_EyeProtectionType', 'eye_protection_type_id'),
 		);
 	}
 
@@ -161,6 +159,20 @@ class Element_OphMiSurgicalsafetychecklist_TimeOut extends BaseEventTypeElement
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria,
 		));
+	}
+
+	public function requiredIfActive($attribute, $params)
+	{
+		if (@$_POST['Element_OphMiSurgicalsafetychecklist_TimeOut_active']) {
+			if ($this->$attribute == null) {
+				if (!@$params['message']) {
+					$params['message'] = "{attribute} cannot be blank.";
+				}
+				$params['{attribute}'] = $this->getAttributeLabel($attribute);
+
+				$this->addError($attribute, strtr($params['message'], $params));
+			}
+		}
 	}
 }
 ?>
