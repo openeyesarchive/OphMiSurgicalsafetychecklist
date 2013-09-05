@@ -43,6 +43,7 @@ $(document).ready(function() {
 	$('table.checklist td.header').click(function(e) {
 		e.preventDefault();
 
+		$(this).closest('table').prev('input.active').val($(this).closest('thead').next('tbody').is(':hidden') ? 1 : 0);
 		$(this).closest('thead').next('tbody').slideToggle(200);
 	});
 });

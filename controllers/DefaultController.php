@@ -8,15 +8,32 @@ class DefaultController extends BaseEventTypeController
 			return (boolean)@$_POST[get_class($element).'_active'];
 		}
 
-		if (!$element->id) {
-			return ($element->elementType->class_name == 'Element_OphMiSurgicalsafetychecklist_SignIn');
+		if (!$this->event) {
+			$element_type = ElementType::model()->find(array('condition'=>'event_type_id=?','params'=>array($element->elementType->event_type_id),'order'=>'display_order'));
+			return $element->elementType->id == $element_type->id;
 		}
 
-		if (!$element->event->hasElement(get_class($element).'_active')) {
-			return true;
-		}
+		return ($element->elementType->id == $this->getNextElementTypeID($element));
+	}
 
-		return false;
+	public function getNextElementTypeID($element) {
+		foreach (ElementType::model()->findAll(array('condition'=>'event_type_id=?','params'=>array($element->elementType->event_type_id),'order'=>'display_order')) as $element_type) {
+			$class = $element_type->class_name;
+
+			if (!$class::model()->find('event_id=?',array($this->event->id))) {
+				return $element_type->id;
+			}
+		}
+	}
+
+	public function previousElementsExist($element) {
+		foreach (ElementType::model()->findAll('event_type_id=? and display_order <?',array($element->elementType->event_type->id,$element->elementType->display_order)) as $element_type) {
+			$class = $element_type->class_name;
+
+			if (!$class::model()->find('event_id=?',array($element->event_id))) {
+				return false;
+			}
+		}
 	}
 
 	public function actionCreate()

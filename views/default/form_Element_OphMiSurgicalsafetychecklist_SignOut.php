@@ -25,7 +25,7 @@
 	data-element-display-order="<?php echo $element->elementType->display_order?>">
 	<h4 class="elementTypeName"><?php echo $element->elementType->name; ?></h4>
 
-	<input type="hidden" id="Element_OphMiSurgicalsafetychecklist_SignOut_active" name="Element_OphMiSurgicalsafetychecklist_SignOut_active" value="<?php echo $this->elementActive($element) ? '1' : '0'?>" />
+	<input class="active" type="hidden" id="Element_OphMiSurgicalsafetychecklist_SignOut_active" name="Element_OphMiSurgicalsafetychecklist_SignOut_active" value="<?php echo $this->elementActive($element) ? '1' : '0'?>" />
 
 	<table class="eventDetail checklist">
 		<thead>
@@ -35,7 +35,7 @@
 				</td>
 			</tr>
 		</thead>
-		<tbody style="display: none;">
+		<tbody<?php if (!$this->elementActive($element)) {?> style="display: none;"<?php }?>>
 			<tr>
 				<td>
 					<strong>Surgeon / OR nurse verbally confirms with the team:</strong><br/>
