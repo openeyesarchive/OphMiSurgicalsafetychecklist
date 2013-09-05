@@ -25,10 +25,27 @@
 	data-element-display-order="<?php echo $element->elementType->display_order?>">
 	<h4 class="elementTypeName"><?php echo $element->elementType->name; ?></h4>
 
-	<?php echo $form->checkBox($element, 'count_complete')?>
-	<?php echo $form->checkBox($element, 'specimins_cultures')?>
-	<?php echo $form->checkBox($element, 'labelled_identifiers')?>
-	<?php echo $form->checkBox($element, 'problems_identified')?>
-	<?php echo $form->textArea($element, 'problems_detail', array('rows' => 6, 'cols' => 80))?>
-	<?php echo $form->checkBox($element, 'recovery_instructions')?>
+	<table class="eventDetail checklist">
+		<tr>
+			<td class="header">
+				At end of procedure
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Surgeon / OR nurse verbally confirms with the team:</strong><br/>
+				<?php echo $form->checkBox($element, 'count_complete', array('text-align'=>'right','no-label'=>true))?>
+				<?php echo $form->checkBox($element, 'specimins_cultures', array('text-align'=>'right','no-label'=>true))?>
+				<?php echo $form->checkBox($element, 'labelled_identifiers', array('text-align'=>'right','no-label'=>true))?>
+				<?php echo $form->checkBox($element, 'problems_identified', array('text-align'=>'right','no-label'=>true))?>
+				<?php echo $form->textArea($element, 'problems_detail', array('rows' => 3, 'cols' => 36))?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Surgeon and <?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetist']?></strong><br/>
+				<?php echo $form->checkBox($element, 'recovery_instructions', array('text-align'=>'right','no-label'=>true))?>
+			</td>
+		</tr>
+	</table>
 </div>

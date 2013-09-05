@@ -101,11 +101,11 @@ class Element_OphMiSurgicalsafetychecklist_SignOut extends BaseEventTypeElement
 			'id' => 'ID',
 			'event_id' => 'Event',
 			'count_complete' => 'Count is complete',
-			'specimins_cultures' => 'Specimins cultures',
-			'labelled_identifiers' => 'Labelled identifiers',
-			'problems_identified' => 'Problems identified',
-			'problems_detail' => 'Problems detail',
-			'recovery_instructions' => 'Recovery instructions',
+			'specimins_cultures' => 'Specimins / cultures',
+			'labelled_identifiers' => 'Labelled with patient identifiers',
+			'problems_identified' => 'Equipment problems identified',
+			'problems_detail' => 'If yes, please detail separately',
+			'recovery_instructions' => 'Special instructions provided to recovery and/or the ward',
 		);
 	}
 
@@ -132,24 +132,6 @@ class Element_OphMiSurgicalsafetychecklist_SignOut extends BaseEventTypeElement
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria,
 		));
-	}
-
-
-
-	protected function beforeSave()
-	{
-		return parent::beforeSave();
-	}
-
-	protected function afterSave()
-	{
-
-		return parent::afterSave();
-	}
-
-	protected function beforeValidate()
-	{
-		return parent::beforeValidate();
 	}
 }
 ?>

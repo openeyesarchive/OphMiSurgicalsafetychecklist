@@ -25,3 +25,4 @@ table.checklist span.right { float: right; }
 table.checklist .header { background: #ccc; text-align: center; font-weight: bold; }
 table.checklist .eventDetail { padding: 0 !important; }
 .latex_option { float: right; margin-top: -1.2em; }
+#div_Element_OphMiSurgicalsafetychecklist_SignOut_problems_detail .label { width: 250px !important; font-style: italic; }
