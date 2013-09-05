@@ -28,13 +28,13 @@
 	<table class="eventDetail checklist">
 		<tr>
 			<td colspan="3" class="header">
-				Before start of anaesthesia
+				Before start of <?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetic']?>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="3">
 				<span>Nursing handover<span>
-				<span class="right">Anaesthesiologist</span>
+				<span class="right"><?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetist']?></span>
 			</td>
 		</tr>
 		<tr>
@@ -42,7 +42,7 @@
 				<?php echo $form->checkBox($element, 'confirm_details1', array('text-align'=>'right','no-label'=>true))?>
 			</td>
 			<td>
-				<strong>The patient (or guardian)* confirmed patient's identity, procedure, site and consent (including type of anaesthesia)</strong>
+				<strong>The patient (or guardian)* confirmed patient's identity, procedure, site and consent (including type of <?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetic']?>)</strong>
 			</td>
 			<td style="width: 65px;">
 				<?php echo $form->checkBox($element, 'confirm_details2', array('text-align'=>'right','no-label'=>true))?>
@@ -107,7 +107,7 @@
 		<tr>
 			<td>&nbsp;</td>
 			<td>
-				<strong>Specific anaesthetic concerns<br/>
+				<strong>Specific <?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetic']?> concerns<br/>
 					including Venous Thromboembolism</strong><br/><br/>
 					If yes, the appropriate equipment/assistance is available or medically addressed
 			</td>

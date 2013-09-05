@@ -218,24 +218,6 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_specific_concerns_fk` FOREIGN KEY (`specific_concerns_id`) REFERENCES `ophmisurgicalsafetycheckl_signin_specific_concerns` (`id`)',
 			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
 
-		$this->createTable('ophmisurgicalsafetycheckl_timeout_eye_protection_type', array(
-				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
-				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
-				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
-				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
-				'created_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
-				'created_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
-				'PRIMARY KEY (`id`)',
-				'KEY `ophmisurgicalsafetycheckl_timeout_eye_protection_type_lmui_fk` (`last_modified_user_id`)',
-				'KEY `ophmisurgicalsafetycheckl_timeout_eye_protection_type_cui_fk` (`created_user_id`)',
-				'CONSTRAINT `ophmisurgicalsafetycheckl_timeout_eye_protection_type_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
-				'CONSTRAINT `ophmisurgicalsafetycheckl_timeout_eye_protection_type_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
-
-		$this->insert('ophmisurgicalsafetycheckl_timeout_eye_protection_type',array('name'=>'Tape','display_order'=>1));
-		$this->insert('ophmisurgicalsafetycheckl_timeout_eye_protection_type',array('name'=>'Shield','display_order'=>2));
-
 		$this->createTable('et_ophmisurgicalsafetycheckl_timeout', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
 				'event_id' => 'int(10) unsigned NOT NULL',
@@ -243,16 +225,17 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 				'verbal_confirm1' => 'tinyint(1) unsigned NOT NULL', // Verbal confirm 1
 				'verbal_confirm2' => 'tinyint(1) unsigned NOT NULL', // Verbal confirm 2
 				'verbal_confirm3' => 'tinyint(1) unsigned NOT NULL', // Verbal confirm 3
-				'allergies' => 'tinyint(1) unsigned NOT NULL DEFAULT 0', // Allergies
-				'latex' => 'tinyint(1) unsigned NOT NULL DEFAULT 0', // Latex
+				'allergies' => 'tinyint(1) unsigned NOT NULL', // Allergies
+				'latex' => 'tinyint(1) unsigned NOT NULL', // Latex
 				'eye_protected' => 'tinyint(1) unsigned NOT NULL', // Eye protected
-				'eye_protection_type_id' => 'int(10) unsigned NOT NULL', // Eye protection type
+				'eye_protection_tape' => 'tinyint(1) unsigned NOT NULL',
+				'eye_protection_shield' => 'tinyint(1) unsigned NOT NULL',
 				'specific_equipment' => 'tinyint(1) unsigned NOT NULL', // Specific equipment
 				'non_routine' => 'tinyint(1) unsigned NOT NULL', // Non routine
 				'instrument_sterility' => 'tinyint(1) unsigned NOT NULL', // Instrument sterility
 				'specific_issues' => 'tinyint(1) unsigned NOT NULL', // Specific issues
 				'initial_count' => 'tinyint(1) unsigned NOT NULL', // Initial count
-				'risk_reduction' => 'tinyint(1) unsigned NOT NULL DEFAULT 0', // Risk reduction
+				'risk_reduction' => 'tinyint(1) unsigned NOT NULL', // Risk reduction
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
 				'created_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
@@ -261,11 +244,9 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 				'KEY `et_ophmisurgicalsafetycheckl_timeout_lmui_fk` (`last_modified_user_id`)',
 				'KEY `et_ophmisurgicalsafetycheckl_timeout_cui_fk` (`created_user_id`)',
 				'KEY `et_ophmisurgicalsafetycheckl_timeout_ev_fk` (`event_id`)',
-				'KEY `ophmisurgicalsafetycheckl_timeout_eye_protection_type_fk` (`eye_protection_type_id`)',
 				'CONSTRAINT `et_ophmisurgicalsafetycheckl_timeout_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophmisurgicalsafetycheckl_timeout_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophmisurgicalsafetycheckl_timeout_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)',
-				'CONSTRAINT `ophmisurgicalsafetycheckl_timeout_eye_protection_type_fk` FOREIGN KEY (`eye_protection_type_id`) REFERENCES `ophmisurgicalsafetycheckl_timeout_eye_protection_type` (`id`)',
 			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
 
 		$this->createTable('et_ophmisurgicalsafetycheckl_signout', array(

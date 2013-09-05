@@ -25,18 +25,69 @@
 	data-element-display-order="<?php echo $element->elementType->display_order?>">
 	<h4 class="elementTypeName"><?php echo $element->elementType->name; ?></h4>
 
-	<?php echo $form->checkBox($element, 'introduced')?>
-	<?php echo $form->checkBox($element, 'verbal_confirm1')?>
-	<?php echo $form->checkBox($element, 'verbal_confirm2')?>
-	<?php echo $form->checkBox($element, 'verbal_confirm3')?>
-	<?php echo $form->radioBoolean($element, 'allergies')?>
-	<?php echo $form->radioBoolean($element, 'latex')?>
-	<?php echo $form->checkBox($element, 'eye_protected')?>
-	<?php echo $form->radioButtons($element, 'eye_protection_type_id', 'ophmisurgicalsafetycheckl_timeout_eye_protection_type')?>
-	<?php echo $form->checkBox($element, 'specific_equipment')?>
-	<?php echo $form->checkBox($element, 'non_routine')?>
-	<?php echo $form->checkBox($element, 'instrument_sterility')?>
-	<?php echo $form->checkBox($element, 'specific_issues')?>
-	<?php echo $form->checkBox($element, 'initial_count')?>
-	<?php echo $form->radioBoolean($element, 'risk_reduction')?>
+	<table class="eventDetail checklist">
+		<tr>
+			<td class="header">
+				Before start of surgical intervention
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>All team members introduced themselves by name and role</strong><br/>
+				<?php echo $form->checkBox($element, 'introduced', array('text-align'=>'right','no-label'=>true))?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Surgeon, <?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetist']?> and scrub nurse check patient ID band and consent form and verbally confirm:</strong><br/>
+				<?php echo $form->checkBox($element, 'verbal_confirm1', array('text-align'=>'right','no-label'=>true))?>
+				<?php echo $form->checkBox($element, 'verbal_confirm2', array('text-align'=>'right','no-label'=>true))?>
+				<?php echo $form->checkBox($element, 'verbal_confirm3', array('text-align'=>'right','no-label'=>true))?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Allergies:</strong><br/>
+				<?php echo $form->radioBoolean($element, 'allergies', array('nowrapper'=>true,'separator'=>'<br/>'))?>
+				<div class="latex_option">
+					<span style="margin-right: 1em;"><strong>Latex:</strong></span>
+					<?php echo $form->radioBoolean($element, 'latex', array('nowrapper'=>true))?>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Non-operative eye protected:</strong><br/>
+				<?php echo $form->checkBox($element, 'eye_protected', array('text-align'=>'right','no-label'=>true))?><br/>
+				If yes, <?php echo $form->checkBox($element, 'eye_protected_tape',  array('text-align'=>'right','no-label'=>true,'nowrapper'=>true))?>
+				<?php echo $form->checkBox($element, 'eye_protected_shield', array('text-align'=>'right','no-label'=>true,'nowrapper'=>true))?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Surgeon to confirm:</strong><br/>
+				<?php echo $form->checkBox($element, 'specific_equipment', array('text-align'=>'right','no-label'=>true))?>
+				<?php echo $form->checkBox($element, 'non_routine', array('text-align'=>'right','no-label'=>true))?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Scrub nurse to confirm:</strong><br/>
+				<?php echo $form->checkBox($element, 'instrument_sterility', array('text-align'=>'right','no-label'=>true))?>
+				<span class="small">(including indicator results)</span>
+				<?php echo $form->checkBox($element, 'specific_issues', array('text-align'=>'right','no-label'=>true))?>
+				<?php echo $form->checkBox($element, 'initial_count', array('text-align'=>'right','no-label'=>true))?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Are the following required to reduce risk of surgical infection?</strong>
+				<ul>
+					<li>Antibiotic prophylaxis</li>
+					<li>Glycemic control</li>
+				</ul>
+				<?php echo $form->checkBox($element, 'risk_reduction', array('text-align'=>'right','no-label'=>true))?>
+			</td>
+		</tr>
+	</table>
 </div>

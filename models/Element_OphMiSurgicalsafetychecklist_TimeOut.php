@@ -30,7 +30,8 @@
  * @property integer $allergies
  * @property integer $latex
  * @property integer $eye_protected
- * @property integer $eye_protection_type_id
+ * @property integer $eye_protection_tape
+ * @property integer $eye_protection_shield
  * @property integer $specific_equipment
  * @property integer $non_routine
  * @property integer $instrument_sterility
@@ -110,20 +111,21 @@ class Element_OphMiSurgicalsafetychecklist_TimeOut extends BaseEventTypeElement
 		return array(
 			'id' => 'ID',
 			'event_id' => 'Event',
-			'introduced' => 'Introduced',
-			'verbal_confirm1' => 'Verbal confirm 1',
-			'verbal_confirm2' => 'Verbal confirm 2',
-			'verbal_confirm3' => 'Verbal confirm 3',
+			'introduced' => 'Yes / Already performed',
+			'verbal_confirm1' => 'Patient\'s name / Identification number',
+			'verbal_confirm2' => 'Procedure planned',
+			'verbal_confirm3' => 'Site marked by "X"',
 			'allergies' => 'Allergies',
 			'latex' => 'Latex',
-			'eye_protected' => 'Eye protected',
-			'eye_protection_type_id' => 'Eye protection type',
-			'specific_equipment' => 'Specific equipment',
-			'non_routine' => 'Non routine',
-			'instrument_sterility' => 'Instrument sterility',
-			'specific_issues' => 'Specific issues',
-			'initial_count' => 'Initial count',
-			'risk_reduction' => 'Risk reduction',
+			'eye_protected' => 'Yes / not applicaple',
+			'eye_protected_tape' => 'Tape',
+			'eye_protected_shield' => 'Shield',
+			'specific_equipment' => 'Specific equipment requirements confirmed',
+			'non_routine' => 'Non routine steps the team should know',
+			'instrument_sterility' => 'Sterility of the instrumentation confirmed',
+			'specific_issues' => 'Specific issues or concerns addressed',
+			'initial_count' => 'Initial count conducted',
+			'risk_reduction' => 'Yes / not applicable',
 		);
 	}
 
@@ -147,7 +149,8 @@ class Element_OphMiSurgicalsafetychecklist_TimeOut extends BaseEventTypeElement
 		$criteria->compare('allergies', $this->allergies);
 		$criteria->compare('latex', $this->latex);
 		$criteria->compare('eye_protected', $this->eye_protected);
-		$criteria->compare('eye_protection_type_id', $this->eye_protection_type_id);
+		$criteria->compare('eye_protected_tape', $this->eye_protection_tape);
+		$criteria->compare('eye_protected_shield', $this->eye_protection_shield);
 		$criteria->compare('specific_equipment', $this->specific_equipment);
 		$criteria->compare('non_routine', $this->non_routine);
 		$criteria->compare('instrument_sterility', $this->instrument_sterility);
@@ -158,24 +161,6 @@ class Element_OphMiSurgicalsafetychecklist_TimeOut extends BaseEventTypeElement
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria,
 		));
-	}
-
-
-
-	protected function beforeSave()
-	{
-		return parent::beforeSave();
-	}
-
-	protected function afterSave()
-	{
-
-		return parent::afterSave();
-	}
-
-	protected function beforeValidate()
-	{
-		return parent::beforeValidate();
 	}
 }
 ?>

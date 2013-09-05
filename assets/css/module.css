@@ -24,3 +24,4 @@ table.checklist td { border: 1px solid #999; padding: 10px; font-size: 15px; }
 table.checklist span.right { float: right; }
 table.checklist .header { background: #ccc; text-align: center; font-weight: bold; }
 table.checklist .eventDetail { padding: 0 !important; }
+.latex_option { float: right; margin-top: -1.2em; }
