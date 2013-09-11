@@ -46,6 +46,11 @@ $(document).ready(function() {
 		$(this).closest('table').prev('input.active').val($(this).closest('thead').next('tbody').is(':hidden') ? 1 : 0);
 		$(this).closest('thead').next('tbody').slideToggle(200);
 	});
+
+	handleButton($('#et_print'),function(e) {
+		OphMiSurgicalsafetychecklist_do_print();
+		e.preventDefault();
+	});
 });
 
 function ucfirst(str) { str += ''; var f = str.charAt(0).toUpperCase(); return f + str.substr(1); }
@@ -54,4 +59,8 @@ function eDparameterListener(_drawing) {
 	if (_drawing.selectedDoodle != null) {
 		// handle event
 	}
+}
+
+function OphMiSurgicalsafetychecklist_do_print() {
+	printIFrameUrl(OE_print_url, null);
 }
