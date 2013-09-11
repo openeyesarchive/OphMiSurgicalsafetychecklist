@@ -16,35 +16,44 @@
  * @copyright Copyright (c) 2011-2013, OpenEyes Foundation
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
+
+$form = new BaseEventTypeCActiveForm;
 ?>
 
-<h4 class="elementTypeName"><?php echo $element->elementType->name?></h4>
+<div class="element <?php echo $element->elementType->class_name?>"
+	data-element-type-id="<?php echo $element->elementType->id?>"
+	data-element-type-class="<?php echo $element->elementType->class_name?>"
+	data-element-type-name="<?php echo $element->elementType->name?>"
+	data-element-display-order="<?php echo $element->elementType->display_order?>">
+	<h4 class="elementTypeName"><?php echo $element->elementType->name; ?></h4>
 
-<table class="subtleWhite normalText">
-	<tbody>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('count_complete'))?></td>
-			<td><span class="big"><?php echo $element->count_complete ? 'Yes' : 'No'?></span></td>
-		</tr>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('specimins_cultures'))?></td>
-			<td><span class="big"><?php echo $element->specimins_cultures ? 'Yes' : 'No'?></span></td>
-		</tr>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('labelled_identifiers'))?></td>
-			<td><span class="big"><?php echo $element->labelled_identifiers ? 'Yes' : 'No'?></span></td>
-		</tr>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('problems_identified'))?></td>
-			<td><span class="big"><?php echo $element->problems_identified ? 'Yes' : 'No'?></span></td>
-		</tr>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('problems_detail'))?></td>
-			<td><span class="big"><?php echo CHtml::encode($element->problems_detail)?></span></td>
-		</tr>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('recovery_instructions'))?></td>
-			<td><span class="big"><?php echo $element->recovery_instructions ? 'Yes' : 'No'?></span></td>
-		</tr>
-	</tbody>
-</table>
+	<input class="active" type="hidden" id="Element_OphMiSurgicalsafetychecklist_SignOut_active" name="Element_OphMiSurgicalsafetychecklist_SignOut_active" value="<?php echo $this->elementActive($element) ? '1' : '0'?>" />
+
+	<table class="eventDetail checklist">
+		<thead>
+			<tr>
+				<td class="header">
+					At end of procedure
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<strong>Surgeon / OR nurse verbally confirms with the team:</strong><br/>
+					<?php echo $form->checkBox($element, 'count_complete', array('text-align'=>'right','no-label'=>true),array('disabled'=>'disabled'))?>
+					<?php echo $form->checkBox($element, 'specimins_cultures', array('text-align'=>'right','no-label'=>true),array('disabled'=>'disabled'))?>
+					<?php echo $form->checkBox($element, 'labelled_identifiers', array('text-align'=>'right','no-label'=>true),array('disabled'=>'disabled'))?>
+					<?php echo $form->checkBox($element, 'problems_identified', array('text-align'=>'right','no-label'=>true),array('disabled'=>'disabled'))?>
+					<?php echo $form->textArea($element, 'problems_detail', array('rows' => 3, 'cols' => 36,'disabled'=>'disabled'))?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Surgeon and <?php echo Yii::app()->params['OphMiSurgicalsafetychecklist_anaesthetist']?></strong><br/>
+					<?php echo $form->checkBox($element, 'recovery_instructions', array('text-align'=>'right','no-label'=>true),array('disabled'=>'disabled'))?>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
