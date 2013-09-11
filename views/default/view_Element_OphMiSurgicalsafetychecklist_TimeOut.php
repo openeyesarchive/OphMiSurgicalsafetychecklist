@@ -51,8 +51,12 @@
 			<td><span class="big"><?php echo $element->eye_protected ? 'Yes' : 'No'?></span></td>
 		</tr>
 		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('eye_protection_type_id'))?></td>
-			<td><span class="big"><?php echo $element->eye_protection_type ? $element->eye_protection_type->name : 'None'?></span></td>
+			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('eye_protection_tape'))?></td>
+			<td><span class="big"><?php echo $element->eye_protection_tape?></span></td>
+		</tr>
+		<tr>
+			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('eye_protection_shield'))?></td>
+			<td><span class="big"><?php echo $element->eye_protection_shield?></span></td>
 		</tr>
 		<tr>
 			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('specific_equipment'))?></td>

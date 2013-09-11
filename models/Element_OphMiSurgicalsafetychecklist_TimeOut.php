@@ -78,7 +78,7 @@ class Element_OphMiSurgicalsafetychecklist_TimeOut extends BaseEventTypeElement
 		// will receive user inputs.
 		return array(
 			array('event_id, introduced, verbal_confirm1, verbal_confirm2, verbal_confirm3, allergies, latex, eye_protected, eye_protection_tape, eye_protection_shield, specific_equipment, non_routine, instrument_sterility, specific_issues, initial_count, risk_reduction, ', 'safe'),
-			array('introduced, verbal_confirm1, verbal_confirm2, verbal_confirm3, allergies, latex, eye_protected, eye_protection_tape, eye_protection_shield, specific_equipment, non_routine, instrument_sterility, specific_issues, initial_count, risk_reduction, ', 'requiredIfActive'),
+			array('introduced, verbal_confirm1, verbal_confirm2, verbal_confirm3, allergies, latex, eye_protected, specific_equipment, non_routine, instrument_sterility, specific_issues, initial_count, risk_reduction, ', 'requiredIfActive'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, event_id, introduced, verbal_confirm1, verbal_confirm2, verbal_confirm3, allergies, latex, eye_protected, eye_protected_tape, eye_protected_shield, specific_equipment, non_routine, instrument_sterility, specific_issues, initial_count, risk_reduction, ', 'safe', 'on' => 'search'),
