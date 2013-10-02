@@ -43,7 +43,6 @@ table.checklist tbody { display: block; }
 				<strong><?php echo $this->patient->contact->fullName?></strong>
 				<br />
 				<?php echo $this->patient->getLetterAddress(array(
-					'include_name' => true,
 					'delimiter' => '<br/>',
 				))?>
 				<br>
