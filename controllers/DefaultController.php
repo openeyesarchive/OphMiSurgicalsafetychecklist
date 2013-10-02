@@ -35,33 +35,4 @@ class DefaultController extends BaseEventTypeController
 			}
 		}
 	}
-
-	public function actionCreate()
-	{
-		foreach ($_POST as $key => $value) {
-			if (preg_match('/^(Element_.*)_active$/',$key,$m)) {
-				if (!$value) {
-					unset($_POST[$m[1]]);
-				}
-			}
-		}
-
-		return parent::actionCreate();
-	}
-
-	public function actionUpdate($id)
-	{
-		foreach ($_POST as $key => $value) {
-			if (preg_match('/^(Element_.*)_active$/',$key,$m)) {
-				if (!$value) {
-					$model = $m[1];
-					if (!$model::model()->find('event_id=?',array($id))) {
-						unset($_POST[$m[1]]);
-					}
-				}
-			}
-		}
-
-		return parent::actionUpdate($id);
-	}
 }
