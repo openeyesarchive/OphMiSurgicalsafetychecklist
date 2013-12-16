@@ -32,7 +32,7 @@
  * @property User $usermodified
  */
 
-class OphMiSurgicalsafetychecklist_SignIn_SpecificConcerns extends BaseActiveRecord
+class OphMiSurgicalsafetychecklist_SignIn_SpecificConcerns extends BaseActiveRecordVersioned
 {
 	/**
 	 * Returns the static model of the specified AR class.
