@@ -405,28 +405,17 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_specific_concerns_version` (
 	public function down()
 	{
 		$this->dropColumn('et_ophmisurgicalsafetycheckl_signin','deleted');
-		$this->dropColumn('et_ophmisurgicalsafetycheckl_signin_version','deleted');
 		$this->dropColumn('et_ophmisurgicalsafetycheckl_signout','deleted');
-		$this->dropColumn('et_ophmisurgicalsafetycheckl_signout_version','deleted');
 		$this->dropColumn('et_ophmisurgicalsafetycheckl_timeout','deleted');
-		$this->dropColumn('et_ophmisurgicalsafetycheckl_timeout_version','deleted');
 
 		$this->dropColumn('ophmisurgicalsafetycheckl_signin_allergies1','deleted');
-		$this->dropColumn('ophmisurgicalsafetycheckl_signin_allergies1_version','deleted');
 		$this->dropColumn('ophmisurgicalsafetycheckl_signin_allergies2','deleted');
-		$this->dropColumn('ophmisurgicalsafetycheckl_signin_allergies2_version','deleted');
 		$this->dropColumn('ophmisurgicalsafetycheckl_signin_npo1','deleted');
-		$this->dropColumn('ophmisurgicalsafetycheckl_signin_npo1_version','deleted');
 		$this->dropColumn('ophmisurgicalsafetycheckl_signin_npo2','deleted');
-		$this->dropColumn('ophmisurgicalsafetycheckl_signin_npo2_version','deleted');
 		$this->dropColumn('ophmisurgicalsafetycheckl_signin_power_recorded1','deleted');
-		$this->dropColumn('ophmisurgicalsafetycheckl_signin_power_recorded1_version','deleted');
 		$this->dropColumn('ophmisurgicalsafetycheckl_signin_site_marked1','deleted');
-		$this->dropColumn('ophmisurgicalsafetycheckl_signin_site_marked1_version','deleted');
 		$this->dropColumn('ophmisurgicalsafetycheckl_signin_site_marked2','deleted');
-		$this->dropColumn('ophmisurgicalsafetycheckl_signin_site_marked2_version','deleted');
 		$this->dropColumn('ophmisurgicalsafetycheckl_signin_specific_concerns','deleted');
-		$this->dropColumn('ophmisurgicalsafetycheckl_signin_specific_concerns_version','deleted');
 
 		$this->dropTable('et_ophmisurgicalsafetycheckl_signin_version');
 		$this->dropTable('et_ophmisurgicalsafetycheckl_signout_version');
