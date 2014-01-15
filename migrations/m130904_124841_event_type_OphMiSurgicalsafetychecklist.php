@@ -30,7 +30,7 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 
 		$this->createTable('ophmisurgicalsafetycheckl_signin_site_marked1', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -41,14 +41,14 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 				'KEY `ophmisurgicalsafetycheckl_signin_site_marked1_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_site_marked1_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_site_marked1_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('ophmisurgicalsafetycheckl_signin_site_marked1',array('name'=>'Yes','display_order'=>1));
 		$this->insert('ophmisurgicalsafetycheckl_signin_site_marked1',array('name'=>'N/A','display_order'=>2));
 
 		$this->createTable('ophmisurgicalsafetycheckl_signin_site_marked2', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -59,14 +59,14 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 				'KEY `ophmisurgicalsafetycheckl_signin_site_marked2_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_site_marked2_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_site_marked2_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('ophmisurgicalsafetycheckl_signin_site_marked2',array('name'=>'Yes','display_order'=>1));
 		$this->insert('ophmisurgicalsafetycheckl_signin_site_marked2',array('name'=>'N/A','display_order'=>2));
 
 		$this->createTable('ophmisurgicalsafetycheckl_signin_allergies1', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -77,14 +77,14 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 				'KEY `ophmisurgicalsafetycheckl_signin_allergies1_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_allergies1_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_allergies1_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('ophmisurgicalsafetycheckl_signin_allergies1',array('name'=>'Yes','display_order'=>1));
 		$this->insert('ophmisurgicalsafetycheckl_signin_allergies1',array('name'=>'No','display_order'=>2));
 
 		$this->createTable('ophmisurgicalsafetycheckl_signin_allergies2', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -95,14 +95,14 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 				'KEY `ophmisurgicalsafetycheckl_signin_allergies2_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_allergies2_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_allergies2_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('ophmisurgicalsafetycheckl_signin_allergies2',array('name'=>'Yes','display_order'=>1));
 		$this->insert('ophmisurgicalsafetycheckl_signin_allergies2',array('name'=>'No','display_order'=>2));
 
 		$this->createTable('ophmisurgicalsafetycheckl_signin_npo1', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -113,14 +113,14 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 				'KEY `ophmisurgicalsafetycheckl_signin_npo1_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_npo1_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_npo1_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('ophmisurgicalsafetycheckl_signin_npo1',array('name'=>'Yes','display_order'=>1));
 		$this->insert('ophmisurgicalsafetycheckl_signin_npo1',array('name'=>'No','display_order'=>2));
 
 		$this->createTable('ophmisurgicalsafetycheckl_signin_npo2', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -131,14 +131,14 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 				'KEY `ophmisurgicalsafetycheckl_signin_npo2_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_npo2_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_npo2_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('ophmisurgicalsafetycheckl_signin_npo2',array('name'=>'Yes','display_order'=>1));
 		$this->insert('ophmisurgicalsafetycheckl_signin_npo2',array('name'=>'No','display_order'=>2));
 
 		$this->createTable('ophmisurgicalsafetycheckl_signin_power_recorded1', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -149,14 +149,14 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 				'KEY `ophmisurgicalsafetycheckl_signin_power_recorded1_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_power_recorded1_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_power_recorded1_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('ophmisurgicalsafetycheckl_signin_power_recorded1',array('name'=>'Yes','display_order'=>1));
 		$this->insert('ophmisurgicalsafetycheckl_signin_power_recorded1',array('name'=>'N/A','display_order'=>2));
 
 		$this->createTable('ophmisurgicalsafetycheckl_signin_specific_concerns', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -167,7 +167,7 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 				'KEY `ophmisurgicalsafetycheckl_signin_specific_concerns_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_specific_concerns_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_specific_concerns_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('ophmisurgicalsafetycheckl_signin_specific_concerns',array('name'=>'Yes','display_order'=>1));
 		$this->insert('ophmisurgicalsafetycheckl_signin_specific_concerns',array('name'=>'No','display_order'=>2));
@@ -216,7 +216,7 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_npo2_fk` FOREIGN KEY (`npo2_id`) REFERENCES `ophmisurgicalsafetycheckl_signin_npo2` (`id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_power_recorded1_fk` FOREIGN KEY (`power_recorded1_id`) REFERENCES `ophmisurgicalsafetycheckl_signin_power_recorded1` (`id`)',
 				'CONSTRAINT `ophmisurgicalsafetycheckl_signin_specific_concerns_fk` FOREIGN KEY (`specific_concerns_id`) REFERENCES `ophmisurgicalsafetycheckl_signin_specific_concerns` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->createTable('et_ophmisurgicalsafetycheckl_timeout', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
@@ -247,7 +247,7 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 				'CONSTRAINT `et_ophmisurgicalsafetycheckl_timeout_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophmisurgicalsafetycheckl_timeout_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophmisurgicalsafetycheckl_timeout_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->createTable('et_ophmisurgicalsafetycheckl_signout', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
@@ -256,7 +256,7 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 				'specimins_cultures' => 'tinyint(1) unsigned NOT NULL', // Specimins cultures
 				'labelled_identifiers' => 'tinyint(1) unsigned NOT NULL', // Labelled identifiers
 				'problems_identified' => 'tinyint(1) unsigned NOT NULL', // Problems identified
-				'problems_detail' => 'text COLLATE utf8_bin DEFAULT \'\'', // Problems detail
+				'problems_detail' => 'text DEFAULT \'\'', // Problems detail
 				'recovery_instructions' => 'tinyint(1) unsigned NOT NULL', // Recovery instructions
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -269,7 +269,7 @@ class m130904_124841_event_type_OphMiSurgicalsafetychecklist extends CDbMigratio
 				'CONSTRAINT `et_ophmisurgicalsafetycheckl_signout_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophmisurgicalsafetycheckl_signout_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophmisurgicalsafetycheckl_signout_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 	}
 
