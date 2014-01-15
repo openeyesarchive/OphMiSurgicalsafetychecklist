@@ -49,7 +49,7 @@ CREATE TABLE `et_ophmisurgicalsafetycheckl_signin_version` (
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_npo2_fk` FOREIGN KEY (`npo2_id`) REFERENCES `ophmisurgicalsafetycheckl_signin_npo2` (`id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_power_recorded1_fk` FOREIGN KEY (`power_recorded1_id`) REFERENCES `ophmisurgicalsafetycheckl_signin_power_recorded1` (`id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_specific_concerns_fk` FOREIGN KEY (`specific_concerns_id`) REFERENCES `ophmisurgicalsafetycheckl_signin_specific_concerns` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophmisurgicalsafetycheckl_signin_version','id','int(10) unsigned NOT NULL');
@@ -72,7 +72,7 @@ CREATE TABLE `et_ophmisurgicalsafetycheckl_signout_version` (
 	`specimins_cultures` tinyint(1) unsigned NOT NULL,
 	`labelled_identifiers` tinyint(1) unsigned NOT NULL,
 	`problems_identified` tinyint(1) unsigned NOT NULL,
-	`problems_detail` text COLLATE utf8_bin,
+	`problems_detail` text,
 	`recovery_instructions` tinyint(1) unsigned NOT NULL,
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -85,7 +85,7 @@ CREATE TABLE `et_ophmisurgicalsafetycheckl_signout_version` (
 	CONSTRAINT `acv_et_ophmisurgicalsafetycheckl_signout_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophmisurgicalsafetycheckl_signout_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophmisurgicalsafetycheckl_signout_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophmisurgicalsafetycheckl_signout_version','id','int(10) unsigned NOT NULL');
@@ -130,7 +130,7 @@ CREATE TABLE `et_ophmisurgicalsafetycheckl_timeout_version` (
 	CONSTRAINT `acv_et_ophmisurgicalsafetycheckl_timeout_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophmisurgicalsafetycheckl_timeout_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophmisurgicalsafetycheckl_timeout_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophmisurgicalsafetycheckl_timeout_version','id','int(10) unsigned NOT NULL');
@@ -148,7 +148,7 @@ CREATE TABLE `et_ophmisurgicalsafetycheckl_timeout_version` (
 		$this->execute("
 CREATE TABLE `ophmisurgicalsafetycheckl_signin_allergies1_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -159,7 +159,7 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_allergies1_version` (
 	KEY `acv_ophmisurgicalsafetycheckl_signin_allergies1_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_allergies1_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_allergies1_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('ophmisurgicalsafetycheckl_signin_allergies1_version','id','int(10) unsigned NOT NULL');
@@ -177,7 +177,7 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_allergies1_version` (
 		$this->execute("
 CREATE TABLE `ophmisurgicalsafetycheckl_signin_allergies2_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -188,7 +188,7 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_allergies2_version` (
 	KEY `acv_ophmisurgicalsafetycheckl_signin_allergies2_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_allergies2_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_allergies2_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('ophmisurgicalsafetycheckl_signin_allergies2_version','id','int(10) unsigned NOT NULL');
@@ -206,7 +206,7 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_allergies2_version` (
 		$this->execute("
 CREATE TABLE `ophmisurgicalsafetycheckl_signin_npo1_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -217,7 +217,7 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_npo1_version` (
 	KEY `acv_ophmisurgicalsafetycheckl_signin_npo1_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_npo1_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_npo1_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('ophmisurgicalsafetycheckl_signin_npo1_version','id','int(10) unsigned NOT NULL');
@@ -235,7 +235,7 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_npo1_version` (
 		$this->execute("
 CREATE TABLE `ophmisurgicalsafetycheckl_signin_npo2_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -246,7 +246,7 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_npo2_version` (
 	KEY `acv_ophmisurgicalsafetycheckl_signin_npo2_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_npo2_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_npo2_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('ophmisurgicalsafetycheckl_signin_npo2_version','id','int(10) unsigned NOT NULL');
@@ -264,7 +264,7 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_npo2_version` (
 		$this->execute("
 CREATE TABLE `ophmisurgicalsafetycheckl_signin_power_recorded1_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -275,7 +275,7 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_power_recorded1_version` (
 	KEY `acv_ophmisurgicalsafetycheckl_signin_power_recorded1_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_power_recorded1_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_power_recorded1_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('ophmisurgicalsafetycheckl_signin_power_recorded1_version','id','int(10) unsigned NOT NULL');
@@ -293,7 +293,7 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_power_recorded1_version` (
 		$this->execute("
 CREATE TABLE `ophmisurgicalsafetycheckl_signin_site_marked1_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -304,7 +304,7 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_site_marked1_version` (
 	KEY `acv_ophmisurgicalsafetycheckl_signin_site_marked1_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_site_marked1_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_site_marked1_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('ophmisurgicalsafetycheckl_signin_site_marked1_version','id','int(10) unsigned NOT NULL');
@@ -322,7 +322,7 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_site_marked1_version` (
 		$this->execute("
 CREATE TABLE `ophmisurgicalsafetycheckl_signin_site_marked2_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -333,7 +333,7 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_site_marked2_version` (
 	KEY `acv_ophmisurgicalsafetycheckl_signin_site_marked2_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_site_marked2_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_site_marked2_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('ophmisurgicalsafetycheckl_signin_site_marked2_version','id','int(10) unsigned NOT NULL');
@@ -351,7 +351,7 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_site_marked2_version` (
 		$this->execute("
 CREATE TABLE `ophmisurgicalsafetycheckl_signin_specific_concerns_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -362,7 +362,7 @@ CREATE TABLE `ophmisurgicalsafetycheckl_signin_specific_concerns_version` (
 	KEY `acv_ophmisurgicalsafetycheckl_signin_specific_concerns_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_specific_concerns_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_specific_concerns_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('ophmisurgicalsafetycheckl_signin_specific_concerns_version','id','int(10) unsigned NOT NULL');
