@@ -40,15 +40,7 @@ CREATE TABLE `et_ophmisurgicalsafetycheckl_signin_version` (
 	KEY `acv_ophmisurgicalsafetycheckl_signin_specific_concerns_fk` (`specific_concerns_id`),
 	CONSTRAINT `acv_et_ophmisurgicalsafetycheckl_signin_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophmisurgicalsafetycheckl_signin_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
-	CONSTRAINT `acv_et_ophmisurgicalsafetycheckl_signin_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`),
-	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_site_marked1_fk` FOREIGN KEY (`site_marked1_id`) REFERENCES `ophmisurgicalsafetycheckl_signin_site_marked1` (`id`),
-	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_site_marked2_fk` FOREIGN KEY (`site_marked2_id`) REFERENCES `ophmisurgicalsafetycheckl_signin_site_marked2` (`id`),
-	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_allergies1_fk` FOREIGN KEY (`allergies1_id`) REFERENCES `ophmisurgicalsafetycheckl_signin_allergies1` (`id`),
-	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_allergies2_fk` FOREIGN KEY (`allergies2_id`) REFERENCES `ophmisurgicalsafetycheckl_signin_allergies2` (`id`),
-	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_npo1_fk` FOREIGN KEY (`npo1_id`) REFERENCES `ophmisurgicalsafetycheckl_signin_npo1` (`id`),
-	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_npo2_fk` FOREIGN KEY (`npo2_id`) REFERENCES `ophmisurgicalsafetycheckl_signin_npo2` (`id`),
-	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_power_recorded1_fk` FOREIGN KEY (`power_recorded1_id`) REFERENCES `ophmisurgicalsafetycheckl_signin_power_recorded1` (`id`),
-	CONSTRAINT `acv_ophmisurgicalsafetycheckl_signin_specific_concerns_fk` FOREIGN KEY (`specific_concerns_id`) REFERENCES `ophmisurgicalsafetycheckl_signin_specific_concerns` (`id`)
+	CONSTRAINT `acv_et_ophmisurgicalsafetycheckl_signin_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
